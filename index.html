@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#5c0f2e" />
+    <meta
+      name="description"
+      content="Uma surpresa feita com amor para Ana Paula."
+    />
+    <title>Para Ana Paula ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="locked">
+    <!-- Portal de abertura -->
+    <div
+      class="gate"
+      id="gate"
+      role="dialog"
+      aria-label="Toque para abrir a surpresa"
+    >
+      <div class="gate-stars" aria-hidden="true"></div>
+      <button class="gate-btn" id="gateBtn" type="button">
+        <span class="envelope" aria-hidden="true">
+          <span class="env-back"></span>
+          <span class="env-letter"></span>
+          <span class="env-flap"></span>
+          <span class="env-front"></span>
+          <span class="env-seal">♥</span>
+        </span>
+        <span class="gate-title">Uma surpresa para você</span>
+        <span class="gate-hint">toque para abrir</span>
+      </button>
+    </div>
+
+    <canvas class="sparkles" id="sparkles" aria-hidden="true"></canvas>
+    <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <button
+      class="mini-music"
+      id="miniMusic"
+      type="button"
+      aria-label="Tocar ou pausar música"
+      hidden
+    >
+      <span class="eq"><i></i><i></i><i></i></span>
+    </button>
+
+    <header class="hero" id="inicio">
+      <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="hero-content">
+        <svg class="heart-draw" viewBox="0 0 100 90" aria-hidden="true">
+          <defs>
+            <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff8fb1" />
+              <stop offset="1" stop-color="#c2185b" />
+            </linearGradient>
+          </defs>
+          <path
+            class="hd-line"
+            d="M50 82 C14 54 6 36 6 24 C6 12 16 5 27 5 C37 5 46 11 50 20 C54 11 63 5 73 5 C84 5 94 12 94 24 C94 36 86 54 50 82 Z"
+          />
+          <path
+            class="hd-fill"
+            d="M50 82 C14 54 6 36 6 24 C6 12 16 5 27 5 C37 5 46 11 50 20 C54 11 63 5 73 5 C84 5 94 12 94 24 C94 36 86 54 50 82 Z"
+          />
+        </svg>
+        <div
+          class="eyebrow typewriter"
+          data-typewriter="Uma pequena surpresa de Nadson"
+          aria-label="Uma pequena surpresa para paula"
+        ></div>
+        <h1>
+          <span class="para">para</span>
+          <em
+            ><span
+              class="typewriter"
+              data-typewriter="Ana Paula"
+              aria-label="Ana Paula"
+            ></span
+          ></em>
+        </h1>
+        <p class="subtitle">
+          <span
+            class="typewriter"
+            data-typewriter="Se eu pudesse guardar uma coisa para sempre, seria a sensação de estar ao seu lado. ❤️"
+            aria-label="Se eu pudesse guardar uma coisa para sempre, seria a sensação de estar ao seu lado."
+          ></span>
+        </p>
+        <a class="primary" href="#nossa-historia"
+          ><span>Entre na nossa história</span> <b>♡</b></a
+        >
+      </div>
+      <a
+        class="scroll-hint"
+        href="#nossa-historia"
+        aria-label="Rolar para baixo"
+        ><span></span
+      ></a>
+    </header>
+
+    <main>
+      <section class="counter-section reveal" id="nossa-historia">
+        <div class="wrap">
+          <div class="section-kicker">Desde 21 de outubro de 2024</div>
+          <h2>O tempo com você</h2>
+          <div class="divider" aria-hidden="true"><i></i><b>♥</b><i></i></div>
+          <p class="lead">
+            Cada segundo ao seu lado faz parte da história mais bonita que
+            estamos construindo juntos.
+          </p>
+          <div class="counter-grid" aria-label="Tempo desde o início do namoro">
+            <div class="counter-card">
+              <span class="counter-num" id="days">—</span
+              ><span class="counter-label">Dias</span>
+            </div>
+            <div class="counter-card">
+              <span class="counter-num" id="hours">—</span
+              ><span class="counter-label">Horas</span>
+            </div>
+            <div class="counter-card">
+              <span class="counter-num" id="minutes">—</span
+              ><span class="counter-label">Minutos</span>
+            </div>
+            <div class="counter-card">
+              <span class="counter-num" id="seconds">—</span
+              ><span class="counter-label">Segundos</span>
+            </div>
+          </div>
+          <p class="span-text" id="spanText" aria-live="off"></p>
+          <p class="since">
+            E eu escolheria você de novo, em cada um desses dias.
+          </p>
+        </div>
+      </section>
+
+      <section class="gallery-section reveal" id="lembrancas">
+        <div class="wrap">
+          <div class="section-kicker">
+            Pequenos momentos, grandes lembranças
+          </div>
+          <h2>Nós, do nosso jeito</h2>
+          <div class="divider" aria-hidden="true"><i></i><b>✿</b><i></i></div>
+          <p class="lead">
+            Nossos sorrisos, passeios, abraços e todos aqueles momentos que só a
+            gente entende.
+          </p>
+
+          <div class="gallery-tools">
+            <label class="upload-label"
+              >＋ Adicionar fotos para visualizar
+              <input id="photoUpload" type="file" accept="image/*" multiple />
+            </label>
+          </div>
+
+          <div class="carousel" aria-label="Carrossel de fotos do casal">
+            <button
+              class="carousel-btn prev"
+              id="prevPhoto"
+              type="button"
+              aria-label="Foto anterior"
+            >
+              ‹
+            </button>
+            <div class="carousel-viewport" id="viewport">
+              <div class="carousel-track" id="galleryTrack">
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_01.webp"
+                    alt="Nós dois em um momento especial"
+                  />
+                  <div class="photo-caption">Uma lembrança nossa ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_02.webp"
+                    alt="Sorriso inesquecível ao seu lado"
+                  />
+                  <div class="photo-caption">Seu sorriso ilumina tudo ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_03.webp"
+                    alt="Passeio inesquecível juntinhos"
+                  />
+                  <div class="photo-caption">Melhor lugar é ao seu lado ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_04.webp"
+                    alt="Olhar repleto de carinho"
+                  />
+                  <div class="photo-caption">Amor em cada detalhe ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_05.webp"
+                    alt="Abraço apertado e acolhedor"
+                  />
+                  <div class="photo-caption">Meu porto seguro ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_06.webp"
+                    alt="Momento simples e cheio de felicidade"
+                  />
+                  <div class="photo-caption">
+                    Colecionando momentos felizes ♡
+                  </div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_07.webp"
+                    alt="Risadas compartilhadas entre nós"
+                  />
+                  <div class="photo-caption">
+                    Você é minha pessoa favorita ♡
+                  </div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_09.webp"
+                    alt="Celebrando nosso carinho e sintonia"
+                  />
+                  <div class="photo-caption">Minha paz é você ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_10.webp"
+                    alt="Nosso amor registrado em uma foto"
+                  />
+                  <div class="photo-caption">Te amo cada dia mais ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_11.webp"
+                    alt="Momento especial ao seu lado"
+                  />
+                  <div class="photo-caption">Sempre melhor com você ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_12.webp"
+                    alt="Sorriso compartilhado"
+                  />
+                  <div class="photo-caption">Razão dos meus sorrisos ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_13.webp"
+                    alt="Aconchego e carinho"
+                  />
+                  <div class="photo-caption">Meu lugar favorito ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_14.webp"
+                    alt="Lembrança cheia de amor"
+                  />
+                  <div class="photo-caption">Amor que só cresce ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_15.webp"
+                    alt="Passeio inesquecível"
+                  />
+                  <div class="photo-caption">Criando memórias juntos ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_16.webp"
+                    alt="Olhar de cumplicidade"
+                  />
+                  <div class="photo-caption">Sintonia perfeita ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img src="assets/fotos/foto_17.webp" alt="Abraço carinhoso" />
+                  <div class="photo-caption">Seu abraço é meu lar ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_18.webp"
+                    alt="Momento de felicidade pura"
+                  />
+                  <div class="photo-caption">Com você, tudo é leve ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_19.webp"
+                    alt="Registro de um dia especial"
+                  />
+                  <div class="photo-caption">Guardado no coração ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_20.webp"
+                    alt="Gargalhadas sinceras"
+                  />
+                  <div class="photo-caption">A alegria dos meus dias ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_21.webp"
+                    alt="Mãos dadas e união"
+                  />
+                  <div class="photo-caption">Lado a lado, sempre ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_22.webp"
+                    alt="Cenário lindo e companhia perfeita"
+                  />
+                  <div class="photo-caption">Você torna tudo especial ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img src="assets/fotos/foto_23.webp" alt="Gesto de afeto" />
+                  <div class="photo-caption">Amor em cada detalhe ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_24.webp"
+                    alt="Momento espontâneo"
+                  />
+                  <div class="photo-caption">Eu amo nós dois ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_25.webp"
+                    alt="Carinho registrado em foto"
+                  />
+                  <div class="photo-caption">Minha melhor escolha ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_26.webp"
+                    alt="Celebração do nosso amor"
+                  />
+                  <div class="photo-caption">Pra sempre com você ♡</div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_27.webp"
+                    alt="Olhares apaixonados"
+                  />
+                  <div class="photo-caption">
+                    Perfeito em todos os momentos ♡
+                  </div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_28.webp"
+                    alt="Dia inesquecível juntinhos"
+                  />
+                  <div class="photo-caption">
+                    Minha felicidade tem seu nome ♡
+                  </div>
+                </article>
+
+                <article class="photo-card">
+                  <img
+                    src="assets/fotos/foto_29.webp"
+                    alt="Nosso amor eterno registrado"
+                  />
+                  <div class="photo-caption">Te amo hoje e sempre ♡</div>
+                </article>
+              </div>
+            </div>
+            <button
+              class="carousel-btn next"
+              id="nextPhoto"
+              type="button"
+              aria-label="Próxima foto"
+            >
+              ›
+            </button>
+          </div>
+          <div
+            class="carousel-dots"
+            id="carouselDots"
+            aria-label="Selecionar foto"
+          ></div>
+          <p class="gallery-note">
+            Você pode adicionar muitas fotos. Para um site leve, recomendamos
+            cerca de 10 a 20 imagens otimizadas. As fotos selecionadas aqui são
+            uma prévia local; veja o LEIA-ME para publicá-las junto com o site.
+          </p>
+        </div>
+      </section>
+
+      <section class="music-section reveal" id="nossa-musica">
+        <div class="music-glow" aria-hidden="true"></div>
+        <div class="wrap">
+          <div class="section-kicker">Dá o play e lembra da gente</div>
+          <h2>A nossa trilha sonora</h2>
+          <div class="divider light" aria-hidden="true">
+            <i></i><b>♪</b><i></i>
+          </div>
+          <p class="lead">“Tem que sorrir” — Jorge &amp; Mateus</p>
+          <div class="music-card" id="musicCard">
+            <div class="vinyl-wrap">
+              <div class="vinyl" aria-hidden="true"></div>
+              <div class="tonearm" aria-hidden="true"></div>
+            </div>
+            <div class="music-info">
+              <h3>Tem que sorrir</h3>
+              <p>Jorge &amp; Mateus · Uma música para ouvir pensando em nós</p>
+              <div class="music-controls">
+                <button class="music-link" id="playMusic" type="button">
+                  ▶ Tocar música
+                </button>
+                <span class="eq big" aria-hidden="true"
+                  ><i></i><i></i><i></i><i></i><i></i
+                ></span>
+              </div>
+              <p class="music-status" id="musicStatus" aria-live="polite">
+                Adicione o arquivo de áudio indicado no LEIA-ME para tocar
+                diretamente aqui.
+              </p>
+              <audio
+                id="loveAudio"
+                preload="none"
+                loop
+                src="assets/tem-que-sorrir.mp3"
+              ></audio>
+              <a
+                class="youtube-link"
+                href="https://youtu.be/AtHet50A5L4?t=30"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Ouvir no YouTube ↗</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="letter-section reveal" id="carta">
+        <div class="wrap">
+          <div class="section-kicker">De mim para você</div>
+          <h2>Uma cartinha para o meu amor</h2>
+          <div class="divider" aria-hidden="true"><i></i><b>♥</b><i></i></div>
+          <div class="letter">
+            <span class="seal" aria-hidden="true">♥</span>
+            <p
+              class="typewriter letter-typewriter"
+              data-typewriter="Foi tão rápido e cá estamos nós, 2 anos com você e eu ainda fico bobo quando você sorri. A gente briga, ri, se ama e cresce junto. E eu não trocaria nada disso por nada no mundo. Feliz 2 anos pra nós, meu amor!"
+              aria-label="Foi tão rápido e cá estamos nós, 2 anos com você e eu ainda fico bobo quando você sorri. A gente briga, ri, se ama e cresce junto. E eu não trocaria nada disso por nada no mundo. Feliz 2 anos pra nós, meu amor!"
+            ></p>
+            <div
+              class="signature typewriter signature-typewriter"
+              data-typewriter="Com todo o meu amor, para sempre nós. ❤️"
+              aria-label="Com todo o meu amor, para sempre nós."
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="end-note reveal">
+        <button
+          class="big-heart"
+          id="bigHeart"
+          type="button"
+          aria-label="Soltar corações"
+        >
+          ♥
+        </button>
+        <p>
+          Ana Paula, entre tantas possibilidades,<br /><strong
+            >meu lugar favorito continua sendo ao seu lado.</strong
+          >
+        </p>
+        <small>toque no coração ♡</small>
+      </section>
+    </main>
+    <footer>Feito com amor, especialmente para Ana Paula ♡</footer>
+  </body>
+</html>

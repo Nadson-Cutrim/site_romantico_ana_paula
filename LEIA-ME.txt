@@ -1,0 +1,56 @@
+SITE ROMÂNTICO — ANA PAULA ❤️
+
+ARQUIVOS
+- index.html: estrutura da página
+- style.css: cores, layout, responsividade e animações
+- script.js: portal de abertura (envelope), contador, digitação, pétalas, brilhos, corações ao toque, carrossel (arrastar/automático) e música
+
+NOVIDADES DESTA VERSÃO
+- Envelope de abertura: o toque inicial também libera a música (se o MP3 existir).
+- Fotos em estilo polaroid, carrossel automático e com arrastar no celular.
+- Vinil que gira ao tocar, botão flutuante de música, barra de progresso, carta em papel pautado.
+- Fontes do Google Fonts (precisam de internet; sem elas o site usa fontes padrão elegantes).
+- assets/fotos/: coloque aqui as fotos que serão publicadas
+- assets/tem-que-sorrir.mp3: arquivo de áudio opcional para reprodução direta
+
+QUANTAS FOTOS?
+O carrossel não tem um limite fixo imposto pelo código. Você pode adicionar muitas fotos. Para carregar rápido no celular, recomendamos 10 a 20 imagens otimizadas (idealmente JPG/WebP e aproximadamente até 500 KB por foto, se possível). O botão de seleção de fotos permite pré-visualizar várias imagens no navegador atual.
+
+COMO PUBLICAR AS FOTOS NO SITE
+O seletor de fotos é apenas uma prévia local; ele não envia imagens para o servidor. Para publicar as fotos:
+1. Copie suas fotos para assets/fotos/.
+2. No index.html, localize a seção <div class="carousel-track" id="galleryTrack">.
+3. Troque os cards de exemplo por cards como este, repetindo um para cada foto:
+
+<article class="photo-card">
+  <img src="assets/fotos/foto1.jpg" alt="Nós dois em um momento especial">
+  <div class="photo-caption">Uma lembrança nossa ♡</div>
+</article>
+
+Use nomes de arquivo simples, sem acentos, por exemplo foto1.jpg, passeio.jpg, aniversario.webp. O carrossel se ajusta automaticamente à quantidade de cards.
+
+MÚSICA TOCANDO DIRETAMENTE
+Para o botão “Tocar música” reproduzir diretamente na página:
+1. Adicione o arquivo de áudio que você tem autorização para usar à pasta assets/.
+2. Renomeie-o para tem-que-sorrir.mp3.
+3. O caminho precisa ser assets/tem-que-sorrir.mp3.
+4. Faça upload da pasta assets junto com o HTML, CSS e JavaScript.
+O botão começa a tocar após o clique, como solicitado. Não incluí a música no ZIP por direitos autorais. Use apenas um arquivo que você tenha direito de armazenar e compartilhar. Se não adicionar MP3, o link do YouTube continua disponível.
+
+COMO TESTAR
+Extraia o ZIP e abra index.html no navegador. Mantenha os três arquivos principais na mesma pasta.
+
+PUBLICAR GRATUITAMENTE COM GITHUB PAGES
+1. Crie uma conta ou entre em https://github.com/
+2. Crie um repositório público chamado ana-paula-surpresa.
+3. Envie index.html, style.css, script.js e a pasta assets (incluindo as fotos e o MP3, se aplicável).
+4. No repositório, abra Settings > Pages.
+5. Em Build and deployment, selecione Deploy from a branch.
+6. Escolha a branch main e a pasta /(root), depois clique em Save.
+7. Aguarde a publicação e copie o link indicado na seção Pages.
+
+ALTERNATIVA VERCEL
+Você também pode importar o repositório do GitHub em https://vercel.com/ e publicar como site estático.
+
+PRIVACIDADE
+O site não coleta nem envia dados. As fotos e o MP3 adicionados serão servidos publicamente quando o site estiver publicado, então publique somente imagens e arquivos que você deseja compartilhar pelo link.
